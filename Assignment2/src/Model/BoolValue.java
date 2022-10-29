@@ -11,11 +11,14 @@ public class BoolValue implements Value{
         return val;
     }
 
-    public String toString(){
-        return Boolean.toString(this.val);
+    public Value deepCopy(){
+        return new BoolValue(val);
     }
-
     public Type getType(){
         return new BoolType();
+    }
+
+    public String toString(){
+        return Boolean.toString(this.val);
     }
 }
