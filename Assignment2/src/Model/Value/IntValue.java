@@ -6,6 +6,15 @@ import Model.Type.Type;
 public class IntValue implements Value {
     int val;
 
+    @Override
+    public boolean equals(Object anotherValue){
+        if(!(anotherValue instanceof IntValue)){
+            return false;
+        }
+        IntValue castedInt = (IntValue) anotherValue;
+        return this.val == castedInt.val;
+    }
+
     public IntValue(int v){
         this.val = v;
     }

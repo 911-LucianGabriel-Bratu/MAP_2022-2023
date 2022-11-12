@@ -5,6 +5,14 @@ import Model.Type.Type;
 
 public class BoolValue implements Value {
     boolean val;
+    @Override
+    public boolean equals(Object anotherValue){
+        if(!(anotherValue instanceof BoolValue)){
+            return false;
+        }
+        BoolValue castedBool = (BoolValue) anotherValue;
+        return this.val == castedBool.val;
+    }
 
     public BoolValue(boolean v){
         this.val = v;
