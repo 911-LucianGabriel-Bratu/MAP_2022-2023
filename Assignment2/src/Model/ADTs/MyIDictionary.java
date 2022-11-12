@@ -1,6 +1,8 @@
 package Model.ADTs;
 
 import Exceptions.ADTException;
+
+import java.util.Collection;
 import java.util.Set;
 
 public interface MyIDictionary<K, E> {
@@ -11,5 +13,6 @@ public interface MyIDictionary<K, E> {
     boolean isDefined(K key);
     void update(K key, E elem) throws ADTException;
     Set<K> keySet();
+    Collection<E> values();
     int size();
 }
