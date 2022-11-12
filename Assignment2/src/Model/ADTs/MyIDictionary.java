@@ -1,6 +1,7 @@
 package Model.ADTs;
 
 import Exceptions.ADTException;
+import java.util.Set;
 
 public interface MyIDictionary<K, E> {
     void clear();
@@ -9,5 +10,6 @@ public interface MyIDictionary<K, E> {
     E lookup(K key) throws ADTException;
     boolean isDefined(K key);
     void update(K key, E elem) throws ADTException;
+    Set<K> keySet();
     int size();
 }

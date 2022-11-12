@@ -2,7 +2,7 @@ package Model.ADTs;
 
 import Exceptions.ADTException;
 
-import java.util.Stack;
+import java.util.*;
 
 public class MyStack<T> implements MyIStack<T> {
     Stack<T> stack;
@@ -28,6 +28,12 @@ public class MyStack<T> implements MyIStack<T> {
 
     public int size(){
         return this.stack.size();
+    }
+    @Override
+    public List<T> getReversed(){
+        List<T> list = Arrays.asList((T[]) stack.toArray());
+        Collections.reverse(list);
+        return list;
     }
 
     public String toString(){

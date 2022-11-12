@@ -18,6 +18,9 @@ import Model.Value.Value;
 import Repository.IRepository;
 import Repository.Repository;
 
+import javax.imageio.IIOException;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -55,14 +58,14 @@ public class View {
         System.out.println("Choose an option: ");
     }
 
-    private void runProgram1() throws ExpressionEvaluationException, StatementExecutionException, ADTException {
+    private void runProgram1() throws ExpressionEvaluationException, StatementExecutionException, ADTException, IOException{
         IStmt ex1 = new CompStmt(new VarDeclStmt("v", new IntType()),
                 new CompStmt(new AssignStmt("v", new ValueExp(new IntValue(2))),
                         new PrintStmt(new VarExp("v"))));
         runStatement(ex1);
     }
 
-    private void runProgram2() throws ExpressionEvaluationException, StatementExecutionException, ADTException{
+    private void runProgram2() throws ExpressionEvaluationException, StatementExecutionException, ADTException, IOException{
         IStmt ex2 = new CompStmt(new VarDeclStmt("a",new IntType()),
                 new CompStmt(new VarDeclStmt("b",new IntType()),
                         new CompStmt(new AssignStmt("a", new ArithExp(new ValueExp(new IntValue(2)),new
@@ -72,7 +75,7 @@ public class View {
         runStatement(ex2);
     }
 
-    private void runProgram3() throws ExpressionEvaluationException, StatementExecutionException, ADTException{
+    private void runProgram3() throws ExpressionEvaluationException, StatementExecutionException, ADTException, IOException{
         IStmt ex3 = new CompStmt(new VarDeclStmt("a", new BoolType()),
                 new CompStmt(new VarDeclStmt("v", new IntType()),
                         new CompStmt(new AssignStmt("a", new ValueExp(new BoolValue(true))),
@@ -83,14 +86,14 @@ public class View {
         runStatement(ex3);
     }
 
-    private void runStatement(IStmt statement) throws ExpressionEvaluationException, StatementExecutionException, ADTException{
+    private void runStatement(IStmt statement) throws ExpressionEvaluationException, StatementExecutionException, ADTException, IOException {
         MyIStack<IStmt> exeStack = new MyStack<>();
         MyIDictionary<String, Value> symbolTable = new MyDictionary<>();
         MyIList<Value> output = new MyList<>();
+        MyIDictionary<String, BufferedReader> fileTable = new MyDictionary<>();
+        PrgState state = new PrgState(exeStack, symbolTable, output, fileTable, statement);
 
-        PrgState state = new PrgState(exeStack, symbolTable, output, statement);
-
-        IRepository repository = new Repository(state);
+        IRepository repository = new Repository(state, "log.txt");
         Controller controller = new Controller(repository);
 
         System.out.println("Do you want to display the steps?[y/n]");

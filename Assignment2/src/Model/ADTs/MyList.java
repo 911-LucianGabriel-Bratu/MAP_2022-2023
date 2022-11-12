@@ -33,6 +33,10 @@ public class MyList<T> implements MyIList<T> {
         return this.list.size();
     }
 
+    public List<T> getList(){
+        return this.list;
+    }
+
     public String toString(){
         return list.toString();
     }

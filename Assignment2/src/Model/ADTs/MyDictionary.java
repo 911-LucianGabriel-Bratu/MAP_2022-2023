@@ -3,6 +3,7 @@ package Model.ADTs;
 import Exceptions.ADTException;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class MyDictionary<K,E> implements MyIDictionary<K,E> {
     HashMap<K, E> dictionary;
@@ -46,6 +47,10 @@ public class MyDictionary<K,E> implements MyIDictionary<K,E> {
 
     public int size() {
         return this.dictionary.size();
+    }
+
+    public Set<K> keySet(){
+        return this.dictionary.keySet();
     }
 
     public String toString() {

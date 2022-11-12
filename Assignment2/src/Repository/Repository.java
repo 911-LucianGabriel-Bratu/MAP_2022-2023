@@ -16,10 +16,11 @@ public class Repository implements IRepository{
 
     String logFilePath;
 
-    public Repository(PrgState prgState){
+    public Repository(PrgState prgState, String logFilePath){
         this.programStates = new ArrayList<>();
         this.current_position = 0;
         this.programStates.add(prgState);
+        this.logFilePath = logFilePath;
     }
 
     public int getCurrentPosition(){
@@ -42,7 +43,7 @@ public class Repository implements IRepository{
     }
     public void logPrgStateExec() throws IOException, ADTException{
         PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)));
-        logFile.println(this.programStates.get(0).toString());
+        logFile.println(this.programStates.get(0).prgStateToString());
         logFile.close();
     }
     public void emptyLogFile() throws IOException{

@@ -8,6 +8,8 @@ import Model.ADTs.MyIStack;
 import Model.PrgState.PrgState;
 import Repository.IRepository;
 
+import java.io.IOException;
+
 public class Controller {
     IRepository repository;
     boolean displayFlag;
@@ -30,11 +32,13 @@ public class Controller {
         return crtStmt.execute(state);
     }
 
-    public void allStep() throws ADTException, StatementExecutionException, ExpressionEvaluationException{
+    public void allStep() throws ADTException, StatementExecutionException, ExpressionEvaluationException, IOException {
         PrgState prg = repository.getCrtPrg();
+        this.repository.logPrgStateExec();
         display();
         while(!prg.getStk().isEmpty()){
             oneStep(prg);
+            this.repository.logPrgStateExec();
             display();
         }
     }
