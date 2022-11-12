@@ -38,6 +38,9 @@ public class PrgState {
     public MyIDictionary<String, Value> getSymTable(){
         return this.symTable;
     }
+    public MyIDictionary<String, BufferedReader> getFileTable(){
+        return this.fileTable;
+    }
 
     public void setStk(MyIStack<IStmt> newStk){
         this.exeStack = newStk;
