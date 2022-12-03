@@ -2,6 +2,7 @@ package Model.Expression;
 
 import Exceptions.ADTException;
 import Model.ADTs.MyIDictionary;
+import Model.ADTs.MyIHeap;
 import Model.Value.Value;
 
 public class VarExp implements Exp {
@@ -11,7 +12,7 @@ public class VarExp implements Exp {
         this.key = key;
     }
 
-    public Value eval(MyIDictionary<String,Value> tbl)  throws ADTException {
+    public Value eval(MyIDictionary<String,Value> tbl, MyIHeap heap)  throws ADTException {
         return tbl.lookup(key);
     }
 

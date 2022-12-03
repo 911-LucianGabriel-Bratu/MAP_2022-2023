@@ -2,6 +2,7 @@ package Model.PrgState;
 
 import Exceptions.ADTException;
 import Model.ADTs.MyIDictionary;
+import Model.ADTs.MyIHeap;
 import Model.ADTs.MyIList;
 import Model.ADTs.MyIStack;
 import Model.Statement.IStmt;
@@ -16,14 +17,16 @@ public class PrgState {
     MyIDictionary<String, Value> symTable;
     MyIList<Value> out;
     MyIDictionary<String, BufferedReader> fileTable;
+    MyIHeap heap;
     IStmt originalProgram;
 
-    public PrgState(MyIStack<IStmt> stk, MyIDictionary<String,Value> symtbl, MyIList<Value> ot, MyIDictionary<String, BufferedReader> fileTable, IStmt prg) {
+    public PrgState(MyIStack<IStmt> stk, MyIDictionary<String,Value> symtbl, MyIList<Value> ot, MyIDictionary<String, BufferedReader> fileTable, MyIHeap heap, IStmt prg) {
         exeStack = stk;
         symTable = symtbl;
         out = ot;
         this.fileTable = fileTable;
         originalProgram = prg.deepCopy();
+        this.heap = heap;
         stk.push(prg);
     }
 
@@ -42,6 +45,10 @@ public class PrgState {
         return this.fileTable;
     }
 
+    public MyIHeap getHeap(){
+        return this.heap;
+    }
+
     public void setStk(MyIStack<IStmt> newStk){
         this.exeStack = newStk;
     }
@@ -56,6 +63,10 @@ public class PrgState {
 
     public void setFileTable(MyIDictionary<String, BufferedReader> fileTable){
         this.fileTable = fileTable;
+    }
+
+    public void setHeap(MyIHeap newHeap){
+        this.heap = newHeap;
     }
 
     public String exeStackToString() {
@@ -91,16 +102,24 @@ public class PrgState {
         return fileTableStringBuilder.toString();
     }
 
+    public String heapToString() throws ADTException {
+        StringBuilder heapStringBuilder = new StringBuilder();
+        for (int key: heap.keySet()) {
+            heapStringBuilder.append(String.format("%d -> %s\n", key, heap.get(key)));
+        }
+        return heapStringBuilder.toString();
+    }
+
     public String toString(){
         String print_value = "";
         print_value = print_value + "ExeStack:\n" + this.getStk().getReversed() + "\n" +
                 "Symbol Table:\n" + this.getSymTable().toString() + "\n" + "Output:\n" + this.getOut() + "\n" +
-                        "FileTable: \n" + fileTable.toString() + "\n";
+                        "FileTable: \n" + fileTable.toString() + "\n" + "Heap:\n" + heap.toString() + "\n";
         return print_value;
     }
 
     public String prgStateToString() throws ADTException{
         return "ExeStack: \n" + exeStackToString() + "Symbol table: \n" + symTableToString() + "Output: \n" +
-                outToString() + "File table:\n" + fileTableToString();
+                outToString() + "File table:\n" + fileTableToString() + "Heap:\n" + heapToString();
     }
 }

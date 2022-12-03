@@ -23,7 +23,7 @@ public class OpenRFile implements IStmt{
     }
 
     public PrgState execute(PrgState state) throws StatementExecutionException, ExpressionEvaluationException, ADTException{
-        Value val = e.eval(state.getSymTable());
+        Value val = e.eval(state.getSymTable(), state.getHeap());
         if(val.getType().equals(new StringType())){
             StringValue fileName = (StringValue) val;
             MyIDictionary<String, BufferedReader> fileTable = state.getFileTable();
@@ -45,7 +45,7 @@ public class OpenRFile implements IStmt{
         else{
             throw new StatementExecutionException(e.toString() + " does not evaluate to StringType");
         }
-        return state;
+        return null;
     }
 
     public IStmt deepCopy(){

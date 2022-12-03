@@ -3,6 +3,7 @@ package Model.Expression;
 import Exceptions.ADTException;
 import Exceptions.ExpressionEvaluationException;
 import Model.ADTs.MyIDictionary;
+import Model.ADTs.MyIHeap;
 import Model.Type.BoolType;
 import Model.Value.BoolValue;
 import Model.Value.Value;
@@ -20,11 +21,11 @@ public class LogicExp implements Exp {
         this.op = op;
     }
 
-    public Value eval(MyIDictionary<String,Value> tbl) throws ExpressionEvaluationException, ADTException {
+    public Value eval(MyIDictionary<String,Value> tbl, MyIHeap heap) throws ExpressionEvaluationException, ADTException {
         Value v1, v2;
-        v1 = e1.eval(tbl);
+        v1 = e1.eval(tbl, heap);
         if (v1.getType().equals(new BoolType())) {
-            v2 = e2.eval(tbl);
+            v2 = e2.eval(tbl, heap);
             if (v2.getType().equals(new BoolType())) {
                 BoolValue b1 = (BoolValue) v1;
                 BoolValue b2 = (BoolValue) v2;

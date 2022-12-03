@@ -30,7 +30,7 @@ public class ReadFile implements IStmt{
         if(symTable.isDefined(this.varName)){
             Value val = symTable.lookup(varName);
             if(val.getType().equals(new IntType())){
-                val = e.eval(symTable);
+                val = e.eval(symTable, state.getHeap());
                 if(val.getType().equals(new StringType())){
                     StringValue castedString = (StringValue) val;
                     if(fileTable.isDefined(castedString.getVal())){
@@ -57,7 +57,7 @@ public class ReadFile implements IStmt{
         } else{
             throw new StatementExecutionException("variable: " + varName + " is not declared");
         }
-        return state;
+        return null;
     }
 
     @Override

@@ -91,7 +91,8 @@ public class View {
         MyIDictionary<String, Value> symbolTable = new MyDictionary<>();
         MyIList<Value> output = new MyList<>();
         MyIDictionary<String, BufferedReader> fileTable = new MyDictionary<>();
-        PrgState state = new PrgState(exeStack, symbolTable, output, fileTable, statement);
+        MyIHeap heap = new MyHeap();
+        PrgState state = new PrgState(exeStack, symbolTable, output, fileTable, heap, statement);
 
         IRepository repository = new Repository(state, "log.txt");
         Controller controller = new Controller(repository);

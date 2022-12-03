@@ -22,7 +22,7 @@ public class AssignStmt implements IStmt {
     public PrgState execute(PrgState state) throws StatementExecutionException, ADTException, ExpressionEvaluationException {
         MyIDictionary<String, Value> symTbl= state.getSymTable();
         if (symTbl.isDefined(key)){
-            Value val = exp.eval(symTbl);
+            Value val = exp.eval(symTbl, state.getHeap());
             Type typId = (symTbl.lookup(key)).getType();
             if ((val.getType()).equals(typId)) {
                 symTbl.update(key, val);
@@ -33,7 +33,7 @@ public class AssignStmt implements IStmt {
         }
         else throw new StatementExecutionException("the used variable" + key + " was not declared before");
         state.setSymTable(symTbl);
-        return state;
+        return null;
     }
 
     public IStmt deepCopy(){

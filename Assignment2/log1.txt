@@ -40,3 +40,51 @@ Output:
 2
 File table:
 
+ExeStack: 
+(int v|(v = 2|print(v)))
+Symbol table: 
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+int v
+(v = 2|print(v))
+Symbol table: 
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+(v = 2|print(v))
+Symbol table: 
+v -> 0
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+v = 2
+print(v)
+Symbol table: 
+v -> 0
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+print(v)
+Symbol table: 
+v -> 2
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+Symbol table: 
+v -> 2
+Output: 
+2
+File table:
+Heap:
+

@@ -1,6 +1,7 @@
 package Model.Expression;
 
 import Model.ADTs.MyIDictionary;
+import Model.ADTs.MyIHeap;
 import Model.Value.Value;
 
 public class ValueExp implements Exp {
@@ -10,7 +11,7 @@ public class ValueExp implements Exp {
         this.value = value;
     }
 
-    public Value eval(MyIDictionary<String,Value> tbl) {
+    public Value eval(MyIDictionary<String,Value> tbl, MyIHeap heap) {
         return this.value;
     }
 

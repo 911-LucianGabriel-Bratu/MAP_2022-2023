@@ -21,7 +21,7 @@ public class CloseRFile implements IStmt{
     }
 
     public PrgState execute(PrgState state) throws StatementExecutionException, ADTException, ExpressionEvaluationException{
-        Value val = e.eval(state.getSymTable());
+        Value val = e.eval(state.getSymTable(), state.getHeap());
         if(!val.getType().equals(new StringType())){
             throw new StatementExecutionException("expression: " + e.toString() + " does not evaluate to StringType");
         }

@@ -3,6 +3,7 @@ package Model.Expression;
 import Exceptions.ADTException;
 import Exceptions.ExpressionEvaluationException;
 import Model.ADTs.MyIDictionary;
+import Model.ADTs.MyIHeap;
 import Model.Type.IntType;
 import Model.Type.Type;
 import Model.Value.BoolValue;
@@ -22,11 +23,11 @@ public class RelExp implements Exp{
         this.operator = op;
     }
 
-    public Value eval(MyIDictionary<String, Value> tbl) throws ExpressionEvaluationException, ADTException{
+    public Value eval(MyIDictionary<String, Value> tbl, MyIHeap heap) throws ExpressionEvaluationException, ADTException{
         Value v1, v2;
-        v1 = this.exp1.eval(tbl);
+        v1 = this.exp1.eval(tbl, heap);
         if(v1.getType().equals(new IntType())){
-            v2 = this.exp2.eval(tbl);
+            v2 = this.exp2.eval(tbl, heap);
             if(v2.getType().equals(new IntType())){
                 IntValue value1 = (IntValue) v1;
                 IntValue value2 = (IntValue) v2;

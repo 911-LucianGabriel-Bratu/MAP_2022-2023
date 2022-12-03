@@ -23,7 +23,7 @@ public class VarDeclStmt implements IStmt {
         else{
             symTbl.insert(name, type.defaultValue());
             state.setSymTable(symTbl);
-            return state;
+            return null;
         }
     }
 

@@ -25,7 +25,7 @@ public class IfStmt implements IStmt {
     }
 
     public PrgState execute(PrgState state) throws ExpressionEvaluationException, ADTException, StatementExecutionException {
-        Value result = this.exp.eval(state.getSymTable());
+        Value result = this.exp.eval(state.getSymTable(), state.getHeap());
         if(result instanceof BoolValue boolResult) {
             IStmt statement;
             if (boolResult.getVal()) {
@@ -36,7 +36,7 @@ public class IfStmt implements IStmt {
             MyIStack<IStmt> stack = state.getStk();
             stack.push(statement);
             state.setStk(stack);
-            return state;
+            return null;
         }
         else {
             throw new StatementExecutionException("there is no boolean expression in the if statement");

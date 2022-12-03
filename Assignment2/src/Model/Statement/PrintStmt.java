@@ -17,9 +17,9 @@ public class PrintStmt implements IStmt {
     @Override
     public PrgState execute(PrgState state) throws ADTException, ExpressionEvaluationException {
         MyIList<Value> out = state.getOut();
-        out.add(exp.eval(state.getSymTable()));
+        out.add(exp.eval(state.getSymTable(), state.getHeap()));
         state.setOut(out);
-        return state;
+        return null;
     }
 
     public IStmt deepCopy(){
