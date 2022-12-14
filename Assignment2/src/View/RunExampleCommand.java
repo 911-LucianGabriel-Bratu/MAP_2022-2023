@@ -25,7 +25,7 @@ public class RunExampleCommand extends Command{
             String option = readOption.next();
             controller.setDisplayFlag(Objects.equals(option, "Y"));
             controller.allStep();
-        } catch (ExpressionEvaluationException | ADTException | StatementExecutionException | IOException exception) {
+        } catch (ExpressionEvaluationException | ADTException | StatementExecutionException | IOException | InterruptedException exception) {
             System.out.println(exception.getMessage());
         }
     }

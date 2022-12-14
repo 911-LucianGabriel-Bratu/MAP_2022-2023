@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.util.List;
 
 public interface IRepository {
-    PrgState getCrtPrg();
+    List<PrgState> getPrgList();
     void addPrg(PrgState prg);
-    void setPrgStates(List<PrgState> newPrgStates);
-    void logPrgStateExec() throws IOException, ADTException;
+    void setPrgList(List<PrgState> newPrgStates);
+    void logPrgStateExec(PrgState prg) throws IOException, ADTException;
     void emptyLogFile() throws IOException;
 }

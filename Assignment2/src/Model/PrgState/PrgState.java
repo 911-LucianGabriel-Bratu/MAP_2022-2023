@@ -1,6 +1,8 @@
 package Model.PrgState;
 
 import Exceptions.ADTException;
+import Exceptions.ExpressionEvaluationException;
+import Exceptions.StatementExecutionException;
 import Model.ADTs.MyIDictionary;
 import Model.ADTs.MyIHeap;
 import Model.ADTs.MyIList;
@@ -20,6 +22,9 @@ public class PrgState {
     MyIHeap heap;
     IStmt originalProgram;
 
+    private int id;
+    private static int last_id;
+
     public PrgState(MyIStack<IStmt> stk, MyIDictionary<String,Value> symtbl, MyIList<Value> ot, MyIDictionary<String, BufferedReader> fileTable, MyIHeap heap, IStmt prg) {
         exeStack = stk;
         symTable = symtbl;
@@ -28,6 +33,33 @@ public class PrgState {
         originalProgram = prg.deepCopy();
         this.heap = heap;
         stk.push(prg);
+        this.id = setID();
+    }
+
+    public PrgState(MyIStack<IStmt> stk, MyIDictionary<String,Value> symtbl, MyIList<Value> ot, MyIDictionary<String, BufferedReader> fileTable, MyIHeap heap) {
+        exeStack = stk;
+        symTable = symtbl;
+        out = ot;
+        this.fileTable = fileTable;
+        this.heap = heap;
+        this.id = setID();
+    }
+
+    public boolean isNotCompleted(){
+        return !this.exeStack.isEmpty();
+    }
+
+    public synchronized int setID(){
+        last_id++;
+        return last_id;
+    }
+
+    public PrgState oneStep() throws StatementExecutionException, ADTException, ExpressionEvaluationException {
+        if(exeStack.isEmpty()){
+            throw new StatementExecutionException("stack is empty");
+        }
+        IStmt crtStmt = exeStack.pop();
+        return crtStmt.execute(this);
     }
 
     public MyIStack<IStmt> getStk(){
@@ -112,14 +144,14 @@ public class PrgState {
 
     public String toString(){
         String print_value = "";
-        print_value = print_value + "ExeStack:\n" + this.getStk().getReversed() + "\n" +
+        print_value = print_value + "ID: " + id + "\nExeStack:\n" + this.getStk().getReversed() + "\n" +
                 "Symbol Table:\n" + this.getSymTable().toString() + "\n" + "Output:\n" + this.getOut() + "\n" +
                         "FileTable: \n" + fileTable.toString() + "\n" + "Heap:\n" + heap.toString() + "\n";
         return print_value;
     }
 
     public String prgStateToString() throws ADTException{
-        return "ExeStack: \n" + exeStackToString() + "Symbol table: \n" + symTableToString() + "Output: \n" +
+        return "ID: " + id + "\nExeStack: \n" + exeStackToString() + "Symbol table: \n" + symTableToString() + "Output: \n" +
                 outToString() + "File table:\n" + fileTableToString() + "Heap:\n" + heapToString();
     }
 }

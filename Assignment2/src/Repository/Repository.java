@@ -31,19 +31,18 @@ public class Repository implements IRepository{
     public void addPrg(PrgState prg){
         this.programStates.add(prg);
     }
+    public List<PrgState> getPrgList(){
+        return this.programStates;
+    }
 
     @Override
-    public void setPrgStates(List<PrgState> newPrgStates){
+    public void setPrgList(List<PrgState> newPrgStates){
         this.programStates = newPrgStates;
     }
 
-    @Override
-    public PrgState getCrtPrg(){
-        return this.programStates.get(this.current_position);
-    }
-    public void logPrgStateExec() throws IOException, ADTException{
+    public void logPrgStateExec(PrgState prg) throws IOException, ADTException{
         PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)));
-        logFile.println(this.programStates.get(0).prgStateToString());
+        logFile.println(prg.prgStateToString());
         logFile.close();
     }
     public void emptyLogFile() throws IOException{

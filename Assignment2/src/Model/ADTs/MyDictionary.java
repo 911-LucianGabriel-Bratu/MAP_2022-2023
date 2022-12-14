@@ -17,6 +17,10 @@ public class MyDictionary<K,E> implements MyIDictionary<K,E> {
         this.dictionary.clear();
     }
 
+    public HashMap<K,E> getDictionary(){
+        return this.dictionary;
+    }
+
     public void insert(K key, E elem) {
         this.dictionary.put(key, elem);
     }

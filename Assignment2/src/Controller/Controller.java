@@ -11,15 +11,16 @@ import Model.Value.Value;
 import Repository.IRepository;
 
 import java.io.IOException;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Controller {
     IRepository repository;
     boolean displayFlag;
+
+    ExecutorService executorService;
 
     public Controller(IRepository repo){
         this.repository = repo;
@@ -50,30 +51,75 @@ public class Controller {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
-    public PrgState oneStep(PrgState state) throws ADTException, StatementExecutionException, ExpressionEvaluationException {
-        MyIStack<IStmt> stack = state.getStk();
-        if(stack.isEmpty()){
-            throw new StatementExecutionException("prgstate stack is empty");
-        }
-        IStmt crtStmt = stack.pop();
-        return crtStmt.execute(state);
+    public void oneStepForAllPrg(List<PrgState> prgStates) throws InterruptedException, ExpressionEvaluationException, ADTException, StatementExecutionException, IOException{
+        prgStates.forEach(prgState ->{
+            try{
+                repository.logPrgStateExec(prgState);
+                display(prgState);
+            } catch(IOException | ADTException e){
+                System.out.println(e.getMessage());
+            }
+        });
+        List<Callable<PrgState>> callList = prgStates.stream()
+                .map((PrgState p) -> (Callable<PrgState>) (p::oneStep))
+                .collect(Collectors.toList());
+        List<PrgState> newPrgList = executorService.invokeAll(callList).stream()
+                .map(future -> {
+                    try
+                    {
+                        return future.get();
+                    } catch(ExecutionException | InterruptedException e){
+                        System.out.println(e.getMessage());
+                    }
+                    return null;
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        prgStates.addAll(newPrgList);
+        prgStates.forEach(prgState ->
+        {
+            try{
+                repository.logPrgStateExec(prgState);
+            } catch(IOException | ADTException e){
+                System.out.println(e.getMessage());
+            }
+        });
+        repository.setPrgList(prgStates);
     }
 
-    public void allStep() throws ADTException, StatementExecutionException, ExpressionEvaluationException, IOException {
-        PrgState prg = repository.getCrtPrg();
-        this.repository.logPrgStateExec();
-        display();
-        while(!prg.getStk().isEmpty()){
-            oneStep(prg);
-            this.repository.logPrgStateExec();
-            prg.getHeap().setContent((HashMap<Integer, Value>) safeGarbageCollector(getAddrFromSymTable(prg.getSymTable().values()), getAddrFromHeap(prg.getHeap().getContent().values()), prg.getHeap().getContent()));
-            display();
+    public void allStep() throws ADTException, StatementExecutionException, ExpressionEvaluationException, IOException, InterruptedException {
+        executorService = Executors.newFixedThreadPool(2);
+        List<PrgState> prgList = removeCompletedPrg(repository.getPrgList());
+        while(prgList.size() > 0){
+            conservativeGarbageCollector(prgList);
+            oneStepForAllPrg(prgList);
+            prgList = removeCompletedPrg(repository.getPrgList());
         }
+        executorService.shutdown();
+        repository.setPrgList(prgList);
     }
 
-    void display(){
+    public void conservativeGarbageCollector(List<PrgState> prgStates){
+        List<Integer> symTableAddresses = Objects.requireNonNull(prgStates.stream()
+                .map(p -> getAddrFromSymTable(p.getSymTable().values()))
+                .map(Collection::stream)
+                .reduce(Stream::concat).orElse(null)
+                .collect(Collectors.toList()));
+        prgStates.forEach(p ->{
+            p.getHeap().setContent((HashMap<Integer, Value>) safeGarbageCollector(symTableAddresses,
+                    getAddrFromHeap(p.getHeap().getContent().values()), p.getHeap().getContent()));
+        });
+    }
+
+    public List<PrgState> removeCompletedPrg(List<PrgState> inPrgList){
+        return inPrgList.stream()
+                .filter(p -> p.isNotCompleted())
+                .collect(Collectors.toList());
+    }
+
+    void display(PrgState prgState){
         if(this.displayFlag){
-        System.out.println(this.repository.getCrtPrg().toString());
+        System.out.println(prgState.toString());
         }
     }
 
