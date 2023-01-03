@@ -51,6 +51,18 @@ public class NewStmt implements IStmt{
     }
 
     @Override
+    public MyIDictionary<String, Type> typecheck(MyIDictionary<String, Type> typeEnv) throws ExpressionEvaluationException, StatementExecutionException, ADTException {
+        Type typVar = typeEnv.lookup(varName);
+        Type typExp = expression.typecheck(typeEnv);
+        if(typVar.equals(new RefType(typExp))){
+            return typeEnv;
+        }
+        else{
+            throw new StatementExecutionException("NewStmt - right hand side and left hand side operands have different types");
+        }
+    }
+
+    @Override
     public IStmt deepCopy() {
         return new NewStmt(varName, expression.deepCopy());
     }

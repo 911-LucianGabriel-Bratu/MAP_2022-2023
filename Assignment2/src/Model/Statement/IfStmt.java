@@ -3,9 +3,12 @@ package Model.Statement;
 import Exceptions.ADTException;
 import Exceptions.ExpressionEvaluationException;
 import Exceptions.StatementExecutionException;
+import Model.ADTs.MyIDictionary;
 import Model.Expression.Exp;
 import Model.ADTs.MyIStack;
 import Model.PrgState.PrgState;
+import Model.Type.BoolType;
+import Model.Type.Type;
 import Model.Value.BoolValue;
 import Model.Value.Value;
 
@@ -40,6 +43,19 @@ public class IfStmt implements IStmt {
         }
         else {
             throw new StatementExecutionException("there is no boolean expression in the if statement");
+        }
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typecheck(MyIDictionary<String, Type> typeEnv) throws ExpressionEvaluationException, StatementExecutionException, ADTException {
+        Type typExp = exp.typecheck(typeEnv);
+        if(typExp.equals(new BoolType())){
+            thenS.typecheck(typeEnv.deepcopy());
+            elseS.typecheck(typeEnv.deepcopy());
+            return typeEnv;
+        }
+        else {
+            throw new StatementExecutionException("if condition not of BoolType");
         }
     }
 

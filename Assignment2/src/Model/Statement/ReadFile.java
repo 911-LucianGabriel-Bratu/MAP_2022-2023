@@ -8,6 +8,7 @@ import Model.Expression.Exp;
 import Model.PrgState.PrgState;
 import Model.Type.IntType;
 import Model.Type.StringType;
+import Model.Type.Type;
 import Model.Value.IntValue;
 import Model.Value.StringValue;
 import Model.Value.Value;
@@ -58,6 +59,21 @@ public class ReadFile implements IStmt{
             throw new StatementExecutionException("variable: " + varName + " is not declared");
         }
         return null;
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typecheck(MyIDictionary<String, Type> typeEnv) throws ExpressionEvaluationException, StatementExecutionException, ADTException {
+        if (e.typecheck(typeEnv).equals(new StringType())) {
+            if(typeEnv.lookup(varName).equals(new IntType())){
+                return typeEnv;
+            }
+            else{
+                throw new StatementExecutionException("ReadFile variable parameter is not an int");
+            }
+        }
+        else{
+            throw new StatementExecutionException("ReadFile expression parameter is not a string");
+        }
     }
 
     @Override

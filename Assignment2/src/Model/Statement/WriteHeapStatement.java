@@ -8,6 +8,7 @@ import Model.ADTs.MyIHeap;
 import Model.Expression.Exp;
 import Model.PrgState.PrgState;
 import Model.Type.RefType;
+import Model.Type.Type;
 import Model.Value.RefValue;
 import Model.Value.Value;
 
@@ -52,6 +53,16 @@ public class WriteHeapStatement implements IStmt {
             throw new StatementExecutionException(varName + " is not defined on the SymbolTable");
         }
         return null;
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typecheck(MyIDictionary<String, Type> typeEnv) throws ExpressionEvaluationException, StatementExecutionException, ADTException {
+        if (typeEnv.lookup(varName).equals(new RefType(expression.typecheck(typeEnv)))) {
+            return typeEnv;
+        }
+        else{
+            throw new StatementExecutionException("WriteHeapStmt - right hand side and left hand side operands have different types");
+        }
     }
 
     public String toString(){

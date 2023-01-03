@@ -62,6 +62,15 @@ public class MyDictionary<K,E> implements MyIDictionary<K,E> {
         return this.dictionary.values();
     }
 
+    @Override
+    public MyIDictionary<K, E> deepcopy() throws ADTException {
+        MyIDictionary<K, E> newDict = new MyDictionary<>();
+        for(K key : keySet()){
+            newDict.insert(key, lookup(key));
+        }
+        return newDict;
+    }
+
     public String toString() {
         return this.dictionary.toString();
     }

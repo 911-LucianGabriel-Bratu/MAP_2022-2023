@@ -7,6 +7,7 @@ import Model.ADTs.MyIDictionary;
 import Model.Expression.Exp;
 import Model.PrgState.PrgState;
 import Model.Type.StringType;
+import Model.Type.Type;
 import Model.Value.StringValue;
 import Model.Value.Value;
 
@@ -40,6 +41,17 @@ public class CloseRFile implements IStmt{
         state.setFileTable(fileTable);
         return null;
     }
+
+    @Override
+    public MyIDictionary<String, Type> typecheck(MyIDictionary<String, Type> typeEnv) throws ExpressionEvaluationException, StatementExecutionException, ADTException {
+        if(e.typecheck(typeEnv).equals(new StringType())){
+            return typeEnv;
+        }
+        else{
+            throw new StatementExecutionException("expression not of StringType");
+        }
+    }
+
     @Override
     public IStmt deepCopy(){
         return new CloseRFile(this.e);

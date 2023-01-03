@@ -8,6 +8,7 @@ import Model.ADTs.MyIDictionary;
 import Model.ADTs.MyIStack;
 import Model.ADTs.MyStack;
 import Model.PrgState.PrgState;
+import Model.Type.Type;
 import Model.Value.Value;
 
 import java.util.Map;
@@ -28,6 +29,12 @@ public class ForkStmt implements IStmt{
             newSymTbl.insert(entry.getKey(), entry.getValue().deepCopy());
         }
         return new PrgState(newExeStk, newSymTbl, state.getOut(), state.getFileTable(), state.getHeap());
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typecheck(MyIDictionary<String, Type> typeEnv) throws ExpressionEvaluationException, StatementExecutionException, ADTException {
+        statement.typecheck(typeEnv.deepcopy());
+        return typeEnv;
     }
 
     @Override

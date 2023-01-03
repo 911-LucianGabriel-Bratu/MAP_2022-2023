@@ -4,6 +4,7 @@ import Exceptions.ADTException;
 import Exceptions.ExpressionEvaluationException;
 import Model.ADTs.MyIDictionary;
 import Model.ADTs.MyIHeap;
+import Model.Type.BoolType;
 import Model.Type.IntType;
 import Model.Type.Type;
 import Model.Value.BoolValue;
@@ -51,6 +52,24 @@ public class RelExp implements Exp{
         }
         else throw new ExpressionEvaluationException("first parameter is not an integer");
         return null;
+    }
+
+    @Override
+    public Type typecheck(MyIDictionary<String, Type> typeEnv) throws ExpressionEvaluationException, ADTException {
+        Type typ1, typ2;
+        typ1 = exp1.typecheck(typeEnv);
+        typ2 = exp2.typecheck(typeEnv);
+        if(typ1.equals(new IntType())){
+            if (typ2.equals(new IntType())){
+                return new BoolType();
+            }
+            else {
+                throw new ExpressionEvaluationException("second operand is not an int");
+            }
+        }
+        else{
+            throw new ExpressionEvaluationException("first operand is not an int");
+        }
     }
 
     public Exp deepCopy(){

@@ -1,5 +1,7 @@
 package Model.Statement;
 
+import Exceptions.ADTException;
+import Exceptions.ExpressionEvaluationException;
 import Exceptions.StatementExecutionException;
 import Model.ADTs.MyIDictionary;
 import Model.PrgState.PrgState;
@@ -25,6 +27,12 @@ public class VarDeclStmt implements IStmt {
             state.setSymTable(symTbl);
             return null;
         }
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typecheck(MyIDictionary<String, Type> typeEnv) throws ExpressionEvaluationException, StatementExecutionException, ADTException {
+        typeEnv.insert(name, type);
+        return typeEnv;
     }
 
     public IStmt deepCopy(){

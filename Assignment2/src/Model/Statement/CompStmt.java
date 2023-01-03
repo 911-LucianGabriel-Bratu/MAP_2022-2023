@@ -1,7 +1,12 @@
 package Model.Statement;
 
+import Exceptions.ADTException;
+import Exceptions.ExpressionEvaluationException;
+import Exceptions.StatementExecutionException;
+import Model.ADTs.MyIDictionary;
 import Model.ADTs.MyIStack;
 import Model.PrgState.PrgState;
+import Model.Type.Type;
 
 public class CompStmt implements IStmt {
     IStmt first;
@@ -18,6 +23,11 @@ public class CompStmt implements IStmt {
         stk.push(first);
         state.setStk(stk);
         return null;
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typecheck(MyIDictionary<String, Type> typeEnv) throws ExpressionEvaluationException, StatementExecutionException, ADTException {
+        return snd.typecheck(first.typecheck(typeEnv));
     }
 
     public IStmt deepCopy(){

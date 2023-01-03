@@ -3,10 +3,12 @@ package Model.Statement;
 import Exceptions.ADTException;
 import Exceptions.ExpressionEvaluationException;
 import Exceptions.StatementExecutionException;
+import Model.ADTs.MyIDictionary;
 import Model.ADTs.MyIStack;
 import Model.Expression.Exp;
 import Model.PrgState.PrgState;
 import Model.Type.BoolType;
+import Model.Type.Type;
 import Model.Value.BoolValue;
 import Model.Value.Value;
 
@@ -35,6 +37,18 @@ public class WhileStmt implements IStmt{
             stack.push(stmt);
         }
         return null;
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typecheck(MyIDictionary<String, Type> typeEnv) throws ExpressionEvaluationException, StatementExecutionException, ADTException {
+        Type typExp = expression.typecheck(typeEnv);
+        if(typExp.equals(new BoolType())){
+            stmt.typecheck(typeEnv.deepcopy());
+            return typeEnv;
+        }
+        else{
+            throw new StatementExecutionException("the condition of while is not of BoolType");
+        }
     }
 
     public String toString(){
