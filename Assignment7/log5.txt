@@ -1,0 +1,530 @@
+ExeStack: 
+(int v|(v = 4|(While(v >0) { (print(v)|v = v - 1) }|print(v))))
+Symbol table: 
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+int v
+(v = 4|(While(v >0) { (print(v)|v = v - 1) }|print(v)))
+Symbol table: 
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+(v = 4|(While(v >0) { (print(v)|v = v - 1) }|print(v)))
+Symbol table: 
+v -> 0
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+v = 4
+(While(v >0) { (print(v)|v = v - 1) }|print(v))
+Symbol table: 
+v -> 0
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+(While(v >0) { (print(v)|v = v - 1) }|print(v))
+Symbol table: 
+v -> 4
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 4
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+(print(v)|v = v - 1)
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 4
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+print(v)
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 4
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 4
+Output: 
+4
+File table:
+Heap:
+
+ExeStack: 
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 3
+Output: 
+4
+File table:
+Heap:
+
+ExeStack: 
+(print(v)|v = v - 1)
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 3
+Output: 
+4
+File table:
+Heap:
+
+ExeStack: 
+print(v)
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 3
+Output: 
+4
+File table:
+Heap:
+
+ExeStack: 
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 3
+Output: 
+4
+3
+File table:
+Heap:
+
+ExeStack: 
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 2
+Output: 
+4
+3
+File table:
+Heap:
+
+ExeStack: 
+(print(v)|v = v - 1)
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 2
+Output: 
+4
+3
+File table:
+Heap:
+
+ExeStack: 
+print(v)
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 2
+Output: 
+4
+3
+File table:
+Heap:
+
+ExeStack: 
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 2
+Output: 
+4
+3
+2
+File table:
+Heap:
+
+ExeStack: 
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 1
+Output: 
+4
+3
+2
+File table:
+Heap:
+
+ExeStack: 
+(print(v)|v = v - 1)
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 1
+Output: 
+4
+3
+2
+File table:
+Heap:
+
+ExeStack: 
+print(v)
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 1
+Output: 
+4
+3
+2
+File table:
+Heap:
+
+ExeStack: 
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 1
+Output: 
+4
+3
+2
+1
+File table:
+Heap:
+
+ExeStack: 
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 0
+Output: 
+4
+3
+2
+1
+File table:
+Heap:
+
+ExeStack: 
+print(v)
+Symbol table: 
+v -> 0
+Output: 
+4
+3
+2
+1
+File table:
+Heap:
+
+ExeStack: 
+Symbol table: 
+v -> 0
+Output: 
+4
+3
+2
+1
+0
+File table:
+Heap:
+
+ExeStack: 
+(int v|(v = 4|(While(v >0) { (print(v)|v = v - 1) }|print(v))))
+Symbol table: 
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+int v
+(v = 4|(While(v >0) { (print(v)|v = v - 1) }|print(v)))
+Symbol table: 
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+(v = 4|(While(v >0) { (print(v)|v = v - 1) }|print(v)))
+Symbol table: 
+v -> 0
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+v = 4
+(While(v >0) { (print(v)|v = v - 1) }|print(v))
+Symbol table: 
+v -> 0
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+(While(v >0) { (print(v)|v = v - 1) }|print(v))
+Symbol table: 
+v -> 4
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 4
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+(print(v)|v = v - 1)
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 4
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+print(v)
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 4
+Output: 
+File table:
+Heap:
+
+ExeStack: 
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 4
+Output: 
+4
+File table:
+Heap:
+
+ExeStack: 
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 3
+Output: 
+4
+File table:
+Heap:
+
+ExeStack: 
+(print(v)|v = v - 1)
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 3
+Output: 
+4
+File table:
+Heap:
+
+ExeStack: 
+print(v)
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 3
+Output: 
+4
+File table:
+Heap:
+
+ExeStack: 
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 3
+Output: 
+4
+3
+File table:
+Heap:
+
+ExeStack: 
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 2
+Output: 
+4
+3
+File table:
+Heap:
+
+ExeStack: 
+(print(v)|v = v - 1)
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 2
+Output: 
+4
+3
+File table:
+Heap:
+
+ExeStack: 
+print(v)
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 2
+Output: 
+4
+3
+File table:
+Heap:
+
+ExeStack: 
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 2
+Output: 
+4
+3
+2
+File table:
+Heap:
+
+ExeStack: 
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 1
+Output: 
+4
+3
+2
+File table:
+Heap:
+
+ExeStack: 
+(print(v)|v = v - 1)
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 1
+Output: 
+4
+3
+2
+File table:
+Heap:
+
+ExeStack: 
+print(v)
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 1
+Output: 
+4
+3
+2
+File table:
+Heap:
+
+ExeStack: 
+v = v - 1
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 1
+Output: 
+4
+3
+2
+1
+File table:
+Heap:
+
+ExeStack: 
+While(v >0) { (print(v)|v = v - 1) }
+print(v)
+Symbol table: 
+v -> 0
+Output: 
+4
+3
+2
+1
+File table:
+Heap:
+
+ExeStack: 
+print(v)
+Symbol table: 
+v -> 0
+Output: 
+4
+3
+2
+1
+File table:
+Heap:
+
+ExeStack: 
+Symbol table: 
+v -> 0
+Output: 
+4
+3
+2
+1
+0
+File table:
+Heap:
+
