@@ -1,0 +1,160 @@
+ExeStack: 
+(string varf|(varf = test.in|(OpenRFile(varf)|(int varc|(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseRFile(varf)))))))))
+Symbol table: 
+Output: 
+File table:
+
+ExeStack: 
+string varf
+(varf = test.in|(OpenRFile(varf)|(int varc|(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseRFile(varf))))))))
+Symbol table: 
+Output: 
+File table:
+
+ExeStack: 
+(varf = test.in|(OpenRFile(varf)|(int varc|(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseRFile(varf))))))))
+Symbol table: 
+varf -> 
+Output: 
+File table:
+
+ExeStack: 
+varf = test.in
+(OpenRFile(varf)|(int varc|(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseRFile(varf)))))))
+Symbol table: 
+varf -> 
+Output: 
+File table:
+
+ExeStack: 
+(OpenRFile(varf)|(int varc|(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseRFile(varf)))))))
+Symbol table: 
+varf -> test.in
+Output: 
+File table:
+
+ExeStack: 
+OpenRFile(varf)
+(int varc|(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseRFile(varf))))))
+Symbol table: 
+varf -> test.in
+Output: 
+File table:
+
+ExeStack: 
+(int varc|(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseRFile(varf))))))
+Symbol table: 
+varf -> test.in
+Output: 
+File table:
+test.in
+
+ExeStack: 
+int varc
+(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseRFile(varf)))))
+Symbol table: 
+varf -> test.in
+Output: 
+File table:
+test.in
+
+ExeStack: 
+(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseRFile(varf)))))
+Symbol table: 
+varf -> test.in
+varc -> 0
+Output: 
+File table:
+test.in
+
+ExeStack: 
+ReadFile(varf, varc)
+(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseRFile(varf))))
+Symbol table: 
+varf -> test.in
+varc -> 0
+Output: 
+File table:
+test.in
+
+ExeStack: 
+(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseRFile(varf))))
+Symbol table: 
+varf -> test.in
+varc -> 15
+Output: 
+File table:
+test.in
+
+ExeStack: 
+print(varc)
+(ReadFile(varf, varc)|(print(varc)|CloseRFile(varf)))
+Symbol table: 
+varf -> test.in
+varc -> 15
+Output: 
+File table:
+test.in
+
+ExeStack: 
+(ReadFile(varf, varc)|(print(varc)|CloseRFile(varf)))
+Symbol table: 
+varf -> test.in
+varc -> 15
+Output: 
+15
+File table:
+test.in
+
+ExeStack: 
+ReadFile(varf, varc)
+(print(varc)|CloseRFile(varf))
+Symbol table: 
+varf -> test.in
+varc -> 15
+Output: 
+15
+File table:
+test.in
+
+ExeStack: 
+(print(varc)|CloseRFile(varf))
+Symbol table: 
+varf -> test.in
+varc -> 50
+Output: 
+15
+File table:
+test.in
+
+ExeStack: 
+print(varc)
+CloseRFile(varf)
+Symbol table: 
+varf -> test.in
+varc -> 50
+Output: 
+15
+File table:
+test.in
+
+ExeStack: 
+CloseRFile(varf)
+Symbol table: 
+varf -> test.in
+varc -> 50
+Output: 
+15
+50
+File table:
+test.in
+
+ExeStack: 
+Symbol table: 
+varf -> test.in
+varc -> 50
+Output: 
+15
+50
+File table:
+
