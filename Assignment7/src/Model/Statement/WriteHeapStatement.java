@@ -12,7 +12,6 @@ import Model.Type.Type;
 import Model.Value.RefValue;
 import Model.Value.Value;
 
-import java.sql.Statement;
 
 public class WriteHeapStatement implements IStmt {
     String varName;

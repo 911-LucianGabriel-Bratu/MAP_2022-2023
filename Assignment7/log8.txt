@@ -117,3 +117,485 @@ Heap:
 2 -> (1,int)
 3 -> 30
 
+ID: 1
+ExeStack: 
+(Ref(int) v|(New(v, 20)|(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a))))))))
+Symbol table: 
+Output: 
+File table:
+Heap:
+
+ID: 1
+ExeStack: 
+Ref(int) v
+(New(v, 20)|(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a)))))))
+Symbol table: 
+Output: 
+File table:
+Heap:
+
+ID: 1
+ExeStack: 
+Ref(int) v
+(New(v, 20)|(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a)))))))
+Symbol table: 
+Output: 
+File table:
+Heap:
+
+ID: 1
+ExeStack: 
+(New(v, 20)|(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a)))))))
+Symbol table: 
+v -> (0,int)
+Output: 
+File table:
+Heap:
+
+ID: 1
+ExeStack: 
+(New(v, 20)|(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a)))))))
+Symbol table: 
+v -> (0,int)
+Output: 
+File table:
+Heap:
+
+ID: 1
+ExeStack: 
+New(v, 20)
+(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a))))))
+Symbol table: 
+v -> (0,int)
+Output: 
+File table:
+Heap:
+
+ID: 1
+ExeStack: 
+New(v, 20)
+(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a))))))
+Symbol table: 
+v -> (0,int)
+Output: 
+File table:
+Heap:
+
+ID: 1
+ExeStack: 
+(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a))))))
+Symbol table: 
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 1
+ExeStack: 
+(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a))))))
+Symbol table: 
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 1
+ExeStack: 
+Ref(Ref(int)) a
+(New(a, v)|(New(v, 30)|print(rH(rH(a)))))
+Symbol table: 
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 1
+ExeStack: 
+Ref(Ref(int)) a
+(New(a, v)|(New(v, 30)|print(rH(rH(a)))))
+Symbol table: 
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 1
+ExeStack: 
+(New(a, v)|(New(v, 30)|print(rH(rH(a)))))
+Symbol table: 
+a -> (0,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 1
+ExeStack: 
+(New(a, v)|(New(v, 30)|print(rH(rH(a)))))
+Symbol table: 
+a -> (0,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 1
+ExeStack: 
+New(a, v)
+(New(v, 30)|print(rH(rH(a))))
+Symbol table: 
+a -> (0,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 1
+ExeStack: 
+New(a, v)
+(New(v, 30)|print(rH(rH(a))))
+Symbol table: 
+a -> (0,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 1
+ExeStack: 
+(New(v, 30)|print(rH(rH(a))))
+Symbol table: 
+a -> (2,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+2 -> (1,int)
+
+ID: 1
+ExeStack: 
+(New(v, 30)|print(rH(rH(a))))
+Symbol table: 
+a -> (2,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+2 -> (1,int)
+
+ID: 1
+ExeStack: 
+New(v, 30)
+print(rH(rH(a)))
+Symbol table: 
+a -> (2,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+2 -> (1,int)
+
+ID: 1
+ExeStack: 
+New(v, 30)
+print(rH(rH(a)))
+Symbol table: 
+a -> (2,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+2 -> (1,int)
+
+ID: 1
+ExeStack: 
+print(rH(rH(a)))
+Symbol table: 
+a -> (2,Ref(int))
+v -> (3,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+2 -> (1,int)
+3 -> 30
+
+ID: 1
+ExeStack: 
+print(rH(rH(a)))
+Symbol table: 
+a -> (2,Ref(int))
+v -> (3,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+2 -> (1,int)
+3 -> 30
+
+ID: 1
+ExeStack: 
+Symbol table: 
+a -> (2,Ref(int))
+v -> (3,int)
+Output: 
+20
+File table:
+Heap:
+1 -> 20
+2 -> (1,int)
+3 -> 30
+
+ID: 4
+ExeStack: 
+(Ref(int) v|(New(v, 20)|(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a))))))))
+Symbol table: 
+Output: 
+File table:
+Heap:
+
+ID: 4
+ExeStack: 
+Ref(int) v
+(New(v, 20)|(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a)))))))
+Symbol table: 
+Output: 
+File table:
+Heap:
+
+ID: 4
+ExeStack: 
+Ref(int) v
+(New(v, 20)|(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a)))))))
+Symbol table: 
+Output: 
+File table:
+Heap:
+
+ID: 4
+ExeStack: 
+(New(v, 20)|(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a)))))))
+Symbol table: 
+v -> (0,int)
+Output: 
+File table:
+Heap:
+
+ID: 4
+ExeStack: 
+(New(v, 20)|(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a)))))))
+Symbol table: 
+v -> (0,int)
+Output: 
+File table:
+Heap:
+
+ID: 4
+ExeStack: 
+New(v, 20)
+(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a))))))
+Symbol table: 
+v -> (0,int)
+Output: 
+File table:
+Heap:
+
+ID: 4
+ExeStack: 
+New(v, 20)
+(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a))))))
+Symbol table: 
+v -> (0,int)
+Output: 
+File table:
+Heap:
+
+ID: 4
+ExeStack: 
+(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a))))))
+Symbol table: 
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 4
+ExeStack: 
+(Ref(Ref(int)) a|(New(a, v)|(New(v, 30)|print(rH(rH(a))))))
+Symbol table: 
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 4
+ExeStack: 
+Ref(Ref(int)) a
+(New(a, v)|(New(v, 30)|print(rH(rH(a)))))
+Symbol table: 
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 4
+ExeStack: 
+Ref(Ref(int)) a
+(New(a, v)|(New(v, 30)|print(rH(rH(a)))))
+Symbol table: 
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 4
+ExeStack: 
+(New(a, v)|(New(v, 30)|print(rH(rH(a)))))
+Symbol table: 
+a -> (0,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 4
+ExeStack: 
+(New(a, v)|(New(v, 30)|print(rH(rH(a)))))
+Symbol table: 
+a -> (0,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 4
+ExeStack: 
+New(a, v)
+(New(v, 30)|print(rH(rH(a))))
+Symbol table: 
+a -> (0,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 4
+ExeStack: 
+New(a, v)
+(New(v, 30)|print(rH(rH(a))))
+Symbol table: 
+a -> (0,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+
+ID: 4
+ExeStack: 
+(New(v, 30)|print(rH(rH(a))))
+Symbol table: 
+a -> (2,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+2 -> (1,int)
+
+ID: 4
+ExeStack: 
+(New(v, 30)|print(rH(rH(a))))
+Symbol table: 
+a -> (2,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+2 -> (1,int)
+
+ID: 4
+ExeStack: 
+New(v, 30)
+print(rH(rH(a)))
+Symbol table: 
+a -> (2,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+2 -> (1,int)
+
+ID: 4
+ExeStack: 
+New(v, 30)
+print(rH(rH(a)))
+Symbol table: 
+a -> (2,Ref(int))
+v -> (1,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+2 -> (1,int)
+
+ID: 4
+ExeStack: 
+print(rH(rH(a)))
+Symbol table: 
+a -> (2,Ref(int))
+v -> (3,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+2 -> (1,int)
+3 -> 30
+
+ID: 4
+ExeStack: 
+print(rH(rH(a)))
+Symbol table: 
+a -> (2,Ref(int))
+v -> (3,int)
+Output: 
+File table:
+Heap:
+1 -> 20
+2 -> (1,int)
+3 -> 30
+
+ID: 4
+ExeStack: 
+Symbol table: 
+a -> (2,Ref(int))
+v -> (3,int)
+Output: 
+20
+File table:
+Heap:
+1 -> 20
+2 -> (1,int)
+3 -> 30
+

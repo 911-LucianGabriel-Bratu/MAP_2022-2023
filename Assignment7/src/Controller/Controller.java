@@ -87,16 +87,26 @@ public class Controller {
         repository.setPrgList(prgStates);
     }
 
+    public void oneStep() throws InterruptedException, ADTException, StatementExecutionException, ExpressionEvaluationException, IOException{
+        executorService = Executors.newFixedThreadPool(2);
+        List<PrgState> programStates = removeCompletedPrg(repository.getPrgList());
+        oneStepForAllPrg(programStates);
+        conservativeGarbageCollector(programStates);
+        //programStates = removeCompletedPrg(repository.getPrgList());
+        executorService.shutdown();
+        //repository.setPrgList(programStates);
+    }
+
     public void allStep() throws ADTException, StatementExecutionException, ExpressionEvaluationException, IOException, InterruptedException {
         executorService = Executors.newFixedThreadPool(2);
         List<PrgState> prgList = removeCompletedPrg(repository.getPrgList());
         while(prgList.size() > 0){
             conservativeGarbageCollector(prgList);
             oneStepForAllPrg(prgList);
-            prgList = removeCompletedPrg(repository.getPrgList());
+            //prgList = removeCompletedPrg(repository.getPrgList());
         }
         executorService.shutdown();
-        repository.setPrgList(prgList);
+        //repository.setPrgList(prgList);
     }
 
     public void conservativeGarbageCollector(List<PrgState> prgStates){
@@ -115,6 +125,14 @@ public class Controller {
         return inPrgList.stream()
                 .filter(p -> p.isNotCompleted())
                 .collect(Collectors.toList());
+    }
+
+    public void setProgramStates(List<PrgState> programStates){
+        this.repository.setPrgList(programStates);
+    }
+
+    public List<PrgState> getProgramStates(){
+        return this.repository.getPrgList();
     }
 
     void display(PrgState prgState){

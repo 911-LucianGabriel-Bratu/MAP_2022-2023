@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ToyProgramSelectorController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="425.0" prefWidth="600.0">
+         <children>
+            <ListView id="programsListView" fx:id="programsListView" prefHeight="227.0" prefWidth="600.0" style="-fx-background-color: BA9375;" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button id="displayButton" fx:id="displayButton" mnemonicParsing="false" onAction="#displayProgram" prefHeight="42.0" prefWidth="107.0" text="Display" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

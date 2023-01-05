@@ -49,6 +49,10 @@ public class PrgState {
         return !this.exeStack.isEmpty();
     }
 
+    public int getID(){
+        return this.id;
+    }
+
     public synchronized int setID(){
         last_id++;
         return last_id;

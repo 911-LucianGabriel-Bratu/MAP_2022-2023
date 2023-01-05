@@ -5,20 +5,19 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<?import javafx.scene.control.TextField?>
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="869.0" prefWidth="962.0" style="-fx-background-color: 0x75736F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="869.0" prefWidth="962.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ToyProgramExecutionController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="749.0" prefWidth="962.0" style="-fx-background-color: 0.46, 0.45, 0.44;">
+      <VBox alignment="TOP_CENTER" prefHeight="749.0" prefWidth="962.0">
          <children>
             <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="60.0" prefWidth="377.0" text="Number of Program States:" textAlignment="CENTER" textFill="#c73c3c">
                <graphic>
-                  <TextField id="numberOfProgramStatesTextField" disable="true" />
+                  <TextField fx:id="numberOfProgramStatesTextField" disable="true" />
                </graphic>
                <font>
                   <Font size="18.0" />
@@ -33,10 +32,10 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <TableView id="heapTableView" prefHeight="180.0" prefWidth="418.0">
+                        <TableView fx:id="heapTableView" prefHeight="180.0" prefWidth="418.0">
                           <columns>
-                            <TableColumn id="addressColumn" prefWidth="75.0" text="Address" />
-                            <TableColumn id="valueColumn" prefWidth="158.00003051757812" text="Value" />
+                            <TableColumn fx:id="addressColumn" prefWidth="75.0" text="Address" />
+                            <TableColumn fx:id="valueColumn" prefWidth="158.00003051757812" text="Value" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -51,7 +50,7 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <ListView id="outListView" prefHeight="179.0" prefWidth="480.0" />
+                        <ListView fx:id="outListView" prefHeight="179.0" prefWidth="480.0" />
                      </children>
                   </VBox>
                </children>
@@ -65,17 +64,17 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <ListView id="fileTableListView" prefHeight="172.0" prefWidth="483.0" />
+                        <ListView fx:id="fileTableListView" prefHeight="172.0" prefWidth="483.0" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="179.0" prefWidth="480.0">
                      <children>
-                        <Label text="Program States:" textFill="#c73c3c">
+                        <Label text="Program State Identifiers:" textFill="#c73c3c">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <ListView id="programStateListView" prefHeight="203.0" prefWidth="480.0" />
+                        <ListView fx:id="programStateListView" prefHeight="203.0" prefWidth="480.0" />
                      </children>
                   </VBox>
                </children>
@@ -89,10 +88,10 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <TableView id="symbolTableView" prefHeight="213.0" prefWidth="483.0">
+                        <TableView fx:id="symbolTableView" prefHeight="213.0" prefWidth="483.0">
                           <columns>
-                            <TableColumn id="variableNameColumn" prefWidth="75.0" text="Variable Name" />
-                            <TableColumn id="valueColumn" prefWidth="75.0" text="Value" />
+                            <TableColumn fx:id="variableNameColumn" prefWidth="75.0" text="Variable Name" />
+                            <TableColumn fx:id="variableValueColumn" prefWidth="75.0" text="Variable Value" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -107,14 +106,14 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <ListView id="executionStackListView" prefHeight="222.0" prefWidth="480.0" />
+                        <ListView fx:id="executionStackListView" prefHeight="222.0" prefWidth="480.0" />
                      </children>
                   </VBox>
                </children>
             </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button id="runOneStepButton" mnemonicParsing="false" prefHeight="49.0" prefWidth="116.0" text="RUN ONE STEP" textFill="#c73c3c">
+                  <Button fx:id="runOneStepButton" mnemonicParsing="false" onAction="#runOneStep" prefHeight="49.0" prefWidth="116.0" text="RUN ONE STEP" textFill="#c73c3c">
                      <font>
                         <Font size="14.0" />
                      </font>
