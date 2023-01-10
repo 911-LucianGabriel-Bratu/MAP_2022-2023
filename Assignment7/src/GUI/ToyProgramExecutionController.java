@@ -97,6 +97,11 @@ public class ToyProgramExecutionController {
         }
     }
 
+    public void changeProgramState(MouseEvent event){
+        populateExecutionStackListView();
+        populateSymbolTableView();
+    }
+
     public void populate(){
         populateHeapTableView();
         populateOutListView();
