@@ -181,6 +181,19 @@ public class Interpreter {
             System.out.println(e.getMessage());
         }
 
+        IStmt ex10 = new CompStmt(new VarDeclStmt("v", new IntType()),
+                new CompStmt(new AssignStmt("v", new ValueExp(new StringValue("Some string"))),
+                        new PrintStmt(new VarExp("v"))));
+        try {
+            ex10.typecheck(new MyDictionary<>());
+            PrgState prg10 = new PrgState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), new MyDictionary<>(), new MyHeap(), ex10);
+            IRepository repo10 = new Repository(prg10, "log10.txt");
+            Controller controller10 = new Controller(repo10);
+            menu.addCommand(new RunExampleCommand("10", ex1.toString(), controller10));
+        }
+        catch (ExpressionEvaluationException | ADTException | StatementExecutionException e){
+            System.out.println(e.getMessage());
+        }
         menu.show();
     }
 }
