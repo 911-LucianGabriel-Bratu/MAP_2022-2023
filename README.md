@@ -1,5 +1,6 @@
 # MAP_2022-2023
 Toy-Language Interpreter using Java
+
 Project proposed by Dr. Florin Craciun for the Advanced Programming Methods Course
 
 Assignment1(Simple Java Program) -> 8. Intr-un acvariu traiesc pesti si broaste testoase.
@@ -7,6 +8,7 @@ Sa se afiseze toate vietuitoarele din acvariu care sunt
 mai batrine de 1 an.
 
 Assignment2 -> Toy Language Interpreter as a console application.
+
 Assignment7 -> Toy Language Interpreter with a working GUI.
 
 The purpose of this project was to experiment with how variables are created,
